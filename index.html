@@ -18,9 +18,13 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 <head>
   <!-- This tells the browser how to read the document. -->
   <meta charset="utf-8">
+  <meta name="description" content="Resume">
+  <meta name="keywords" content="CV, resume, online-resume">
+  <meta name="author" content="Gautam Gahlawat">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Tells the browser what the title of this page should be. -->
-  <title>Resume</title>
+  <title>Resume - Gautam Gahlawat</title>
 
   <!-- Load the page styles. -->
   <link href="css/style.css" rel="stylesheet">
@@ -32,7 +36,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   -->
 <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDm0TmlZIJ-afcrOFCVu1t4gz8cPjsWoMc"></script>
 
-  <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
   <div id="main">
@@ -43,10 +46,17 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     resume below. You can pretty easily figure out what each section will
     display by looking at the id or at what's written between the <h2> tags.
     -->
-    <div id="header" class="center-content clear-fix">
-      <ul id="topContacts" class="flex-box"></ul>
-    </div>
+    <header>
+      <div id="header" class="center-content clear-fix">
+        <ul id="topContacts" class="flex-box"></ul>
+      </div>
+    </header>
     <div style="clear: both;"></div>
+
+    <div id="skills" class="white">
+      <h2>Tricks up my sleeves!!</h2>
+    </div>
+
     <div id="workExperience" class="gray">
       <h2>Work Experience</h2>
     </div>
@@ -59,11 +69,13 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     <div id="mapDiv">
       <h2>Where I've Lived and Worked</h2>
     </div>
-    <div id="lets-connect" class="dark-gray">
-      <h2 class="orange center-text">Let's Connect</h2>
-        <ul id="footerContacts" class="flex-box">
-      </ul>
-    </div>
+    <footer>
+      <div id="lets-connect" class="dark-gray">
+        <h2 class="orange center-text">Let's Connect</h2>
+          <ul id="footerContacts" class="flex-box">
+        </ul>
+      </div>
+    </footer>
   </div>
 
   <!-- "HTML is loaded by the browser in the order it appears in the file. If the JavaScript is loaded first and it is supposed to affect the HTML below it, it might not work, as the JavaScript would be loaded before the HTML it is supposed to work on. Therefore, putting JavaScript near the bottom of the HTML page is often the best strategy."
@@ -143,5 +155,6 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
       document.getElementById('mapDiv').style.display = 'none';
     }
   </script>
+  <script src="https://d3js.org/d3.v4.min.js"></script>
 </body>
 </html>

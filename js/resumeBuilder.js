@@ -36,53 +36,64 @@ var bio = {
 
 };
 
+bio.display = function(){
 
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-$("#header").prepend(formattedRole);
+    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+    $("#header").prepend(formattedRole);
+    var formattedName = HTMLheaderName.replace("%data%", bio.name);
+    $("#header").prepend(formattedName);
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
-$("#header").prepend(formattedName);
 
 
-var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-$("#topContacts").prepend(formattedLocation);
+    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+    $("#topContacts").prepend(formattedLocation);
 
-var mobile = bio.contacts.mobile;
-var formattedMobile = HTMLmobile.replace("%data%", mobile);
-$("#topContacts").prepend(formattedMobile);
+    var twitter = bio.contacts.twitter;
+    var formattedTwitter = HTMLtwitter.replace("%data%", twitter);
 
-var email = bio.contacts.email;
-var formattedEmail = HTMLemail.replace("%data%", email);
-$("#topContacts").append(formattedEmail);
+    var mobile = bio.contacts.mobile;
+    var formattedMobile = HTMLmobile.replace("%data%", mobile);
 
-var github = bio.contacts.github;
-var formattedGithub = HTMLgithub.replace("%data%", github);
-$("#topContacts").append(formattedGithub);
+    var email = bio.contacts.email;
+    var formattedEmail = HTMLemail.replace("%data%", email);
 
-var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
-$("#header").append(formattedWelcomeMessage);
+    var github = bio.contacts.github;
+    var formattedGithub = HTMLgithub.replace("%data%", github);
 
-var bioPic = bio.bioPic;
-var formattedBio = HTMLbioPic.replace("%data%", bioPic);
-$("#header").append(formattedBio);
+    $("#topContacts, #footerContacts").append(formattedMobile);
+    $("#topContacts, #footerContacts").append(formattedEmail);
+    $("#topContacts, #footerContacts").append(formattedGithub);
+    $("#footerContacts").append(formattedTwitter);
 
-if(bio.skills.length > 0){
 
-    $("#header").append(HTMLskillsStart);
+    var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
+    $("#header").append(formattedWelcomeMessage);
 
-    var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-    $("#skills").append(formattedSkill);
+    var bioPic = bio.bioPic;
+    var formattedBio = HTMLbioPic.replace("%data%", bioPic);
+    $("#header").append(formattedBio);
 
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-    $("#skills").append(formattedSkill);
+    if(bio.skills.length > 0){
 
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-    $("#skills").append(formattedSkill);
+        $("#header").append(HTMLskillsStart);
 
-    formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-    $("#skills").append(formattedSkill);
+        var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+        $("#skills").append(formattedSkill);
+
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+        $("#skills").append(formattedSkill);
+
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+        $("#skills").append(formattedSkill);
+
+        formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
+        $("#skills").append(formattedSkill);
+    }
 }
 
+
+
+bio.display();
 /*-------Bio ends here--------*/
 
 
@@ -95,7 +106,7 @@ var education = {
             "location": "Murthal, Haryana",
             "degree": "B.Tech",
             "majors": ["CS"],
-            "dates": 2016,
+            "dates": "2013 - 2016",
             "url": "http://example.com"
         },
         {
@@ -103,7 +114,7 @@ var education = {
             "location": "Jhajjar, Haryana",
             "degree": "Diploma",
             "majors": ["CS"],
-            "dates": 2011,
+            "dates": "2008 - 2011",
             "url": "http://example.com"
         }
     ],
@@ -111,27 +122,27 @@ var education = {
         {
             "title": "Front End Nanodegree",
             "school": "Udacity",
-            "dates": "2016",
+            "dates": "Dec - 2016",
             "url": "http://udacity.com"
         },
         {
             "title": "Introduction to Python MITx",
             "school": "edx",
-            "year": "2015",
+            "dates": "Jan - 2016",
             "url": "http://edx.org"
         }
     ]
 };
 
 education.display = function(){
-    education.schools.forEach(function(school){
+
+    education.schools.forEach(function(school) {
         $("#education").append(HTMLschoolStart);
 
         var formattedName = HTMLschoolName.replace("%data%", school.name);
-        $(".education-entry:last").append(formattedName);
-
         var formattedDegree = HTMLschoolDegree.replace("%data%", school.degree);
-        $(".education-entry:last").append(formattedDegree);
+        var formattedNameDegree = formattedName + formattedDegree;
+        $(".education-entry:last").append(formattedNameDegree);
 
         var formattedschoolDates = HTMLschoolDates.replace("%data%", school.dates);
         $(".education-entry:last").append(formattedschoolDates);
@@ -141,21 +152,29 @@ education.display = function(){
 
         var formattedschoolMajor = HTMLschoolMajor.replace("%data%", school.majors);
         $(".education-entry:last").append(formattedschoolMajor);
+    } );
 
-        var formattedurl = HTMLonlineURL.replace("%data%", school.url);
+    function displayonlineCourses() {
+    $("#education").append(HTMLonlineClasses);
+    education.onlineCourses.forEach(function(onlineCourse) {
+        $("#education").append(HTMLschoolStart);
 
+        var formattedonlineTitle = HTMLonlineTitle.replace("#", onlineCourse.url).replace("%data%", onlineCourse.title);
+        var formattedonlineSchool = HTMLonlineSchool.replace("%data%", onlineCourse.school);
+        var formattedTitleShool = formattedonlineTitle + formattedonlineSchool;
+        $(".education-entry:last").append(formattedTitleShool);
+        var formattedonlineDates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
+        $(".education-entry:last").append(formattedonlineDates);
+    } );
+}
 
-        /*if (project.images.length > 0) {
-
-            project.images.forEach(function(image){
-                var formattedImage = HTMLprojectImage.replace("%data%", project.images);
-                $(".education-entry:last").append(formattedImage);
-            });
-        }*/
-    });
+displayonlineCourses();
 };
 
 education.display();
+
+
+
 
 /*-------Education ends here--------*/
 
@@ -214,8 +233,7 @@ var projects = {
             "title" : "Building a Portfolio Site",
             "dates": "Dec-2016",
             "description" : "Assisted R&D in the QA phase of Information Workbench and eCloudManager 6.1 product release by testing & bugfixing. Analyzed cloud automation workflow and contributed in writing and update of technical documentation.",
-            "images" : ["http://www.personal.psu.edu/users/n/y/nys5290/Project-Image.jpg",
-            "http://www.personal.psu.edu/users/n/y/nys5290/Project-Image.jpg"]
+            "images" : ["http://www.personal.psu.edu/users/n/y/nys5290/Project-Image.jpg"]
         }
     ]
 };
@@ -248,6 +266,7 @@ projects.display();
 
 
 $("#mapDiv").append(googleMap);
+
 
 
 /*function inName(name) {
