@@ -17,9 +17,7 @@ var funThoughts = awesomeThoughts.replace("awesome", "fun");
 $("#main").append(funThoughts);*/
 /*var name = "Gautam Gahlawat";
 var role = "Web Developer";*/
-
 /*-------Bio starts from here--------*/
-
 var bio = {
     "name": "Gautam Gahlawat",
     "role": "Web Developer",
@@ -31,12 +29,12 @@ var bio = {
         "location": "Delhi"
     },
     "welcomeMessage": "Hi welcome to my Resume, thanks for taking time to visit !!",
-    "skills": ["Awesome", "Creative", "Responsible", "Destructive"],
-    "bioPic": "images/fry.jpg"
+    "skills": ["Awesome", "Creative", "Responsible", "Dependable"],
+    "bioPic": "images/my-profile-pic.jpg"
 
 };
 
-bio.display = function(){
+bio.display = function() {
 
     var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
     $("#header").prepend(formattedRole);
@@ -73,7 +71,7 @@ bio.display = function(){
     var formattedBio = HTMLbioPic.replace("%data%", bioPic);
     $("#header").append(formattedBio);
 
-    if(bio.skills.length > 0){
+    if (bio.skills.length > 0) {
 
         $("#header").append(HTMLskillsStart);
 
@@ -89,19 +87,17 @@ bio.display = function(){
         formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
         $("#skills").append(formattedSkill);
     }
-}
-
-
+};
 
 bio.display();
+
 /*-------Bio ends here--------*/
 
 
 /*-------Education starts from here--------*/
 
 var education = {
-    "schools": [
-        {
+    "schools": [{
             "name": "Deenbandhu Chhotu Ram University of Science and Technology",
             "location": "Murthal, Haryana",
             "degree": "B.Tech",
@@ -118,8 +114,7 @@ var education = {
             "url": "http://example.com"
         }
     ],
-    "onlineCourses": [
-        {
+    "onlineCourses": [{
             "title": "Front End Nanodegree",
             "school": "Udacity",
             "dates": "Dec - 2016",
@@ -134,7 +129,7 @@ var education = {
     ]
 };
 
-education.display = function(){
+education.display = function() {
 
     education.schools.forEach(function(school) {
         $("#education").append(HTMLschoolStart);
@@ -152,29 +147,26 @@ education.display = function(){
 
         var formattedschoolMajor = HTMLschoolMajor.replace("%data%", school.majors);
         $(".education-entry:last").append(formattedschoolMajor);
-    } );
+    });
 
     function displayonlineCourses() {
-    $("#education").append(HTMLonlineClasses);
-    education.onlineCourses.forEach(function(onlineCourse) {
-        $("#education").append(HTMLschoolStart);
+        $("#education").append(HTMLonlineClasses);
+        education.onlineCourses.forEach(function(onlineCourse) {
+            $("#education").append(HTMLschoolStart);
 
-        var formattedonlineTitle = HTMLonlineTitle.replace("#", onlineCourse.url).replace("%data%", onlineCourse.title);
-        var formattedonlineSchool = HTMLonlineSchool.replace("%data%", onlineCourse.school);
-        var formattedTitleShool = formattedonlineTitle + formattedonlineSchool;
-        $(".education-entry:last").append(formattedTitleShool);
-        var formattedonlineDates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
-        $(".education-entry:last").append(formattedonlineDates);
-    } );
-}
+            var formattedonlineTitle = HTMLonlineTitle.replace("#", onlineCourse.url).replace("%data%", onlineCourse.title);
+            var formattedonlineSchool = HTMLonlineSchool.replace("%data%", onlineCourse.school);
+            var formattedTitleShool = formattedonlineTitle + formattedonlineSchool;
+            $(".education-entry:last").append(formattedTitleShool);
+            var formattedonlineDates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
+            $(".education-entry:last").append(formattedonlineDates);
+        });
+    }
 
-displayonlineCourses();
+    displayonlineCourses();
 };
 
 education.display();
-
-
-
 
 /*-------Education ends here--------*/
 
@@ -182,38 +174,37 @@ education.display();
 /*-------Work starts from here--------*/
 
 var work = {
-    jobs:[
-        {
-            "position" : "Intern",
-            "employer" : "Fluid Operations AG",
-            "location" : "Walldorf, Germany",
-            "dates" : "June 2015 - August 2015",
-            "description" : "Assisted R&D in the QA phase of Information Workbench and eCloudManager 6.1 product release by testing & bugfixing. Analyzed cloud automation workflow and contributed in writing and update of technical documentation."
-        }
-    ]
+    jobs: [{
+        "position": "Intern",
+        "employer": "Fluid Operations AG",
+        "location": "Walldorf, Germany",
+        "dates": "June 2015 - August 2015",
+        "description": "Assisted R&D in the QA phase of Information Workbench and eCloudManager 6.1 product release by testing & bugfixing. Analyzed cloud automation workflow and contributed in writing and update of technical documentation."
+    }]
 };
 
-function displayWork(){
-    work.jobs.forEach(function(job){
-    $("#workExperience").append(HTMLworkStart);
+work.display = function() {
 
-    var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
-    var formattedTitle = HTMLworkTitle.replace("%data%", job.position);
-    var formattedEmployerTitle = formattedEmployer + formattedTitle;
-    $(".work-entry:last").append(formattedEmployerTitle);
+    work.jobs.forEach(function(job) {
+        $("#workExperience").append(HTMLworkStart);
 
-    var formattedDates = HTMLworkDates.replace("%data%", job.dates);
-    $(".work-entry:last").append(formattedDates);
+        var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
+        var formattedTitle = HTMLworkTitle.replace("%data%", job.position);
+        var formattedEmployerTitle = formattedEmployer + formattedTitle;
+        $(".work-entry:last").append(formattedEmployerTitle);
 
-    var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
-    $(".work-entry:last").append(formattedLocation);
+        var formattedDates = HTMLworkDates.replace("%data%", job.dates);
+        $(".work-entry:last").append(formattedDates);
 
-    var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
-    $(".work-entry:last").append(formattedDescription);
-});
-}
+        var formattedLocation = HTMLworkLocation.replace("%data%", job.location);
+        $(".work-entry:last").append(formattedLocation);
 
-displayWork();
+        var formattedDescription = HTMLworkDescription.replace("%data%", job.description);
+        $(".work-entry:last").append(formattedDescription);
+    });
+};
+
+work.display();
 
 /*-------Work ends here--------*/
 
@@ -228,18 +219,22 @@ displayWork();
 /*-------Project starts from here--------*/
 
 var projects = {
-    "projects": [
-        {
-            "title" : "Building a Portfolio Site",
-            "dates": "Dec-2016",
-            "description" : "Assisted R&D in the QA phase of Information Workbench and eCloudManager 6.1 product release by testing & bugfixing. Analyzed cloud automation workflow and contributed in writing and update of technical documentation.",
-            "images" : ["http://www.personal.psu.edu/users/n/y/nys5290/Project-Image.jpg"]
-        }
-    ]
+    "projects": [{
+        "title": "Portfolio Site",
+        "dates": "Dec-2016",
+        "description": "A fully responsive single web page portfolio site. Created as part of Udacity's FEND nanodegree",
+        "images": ["images/197x148.gif"]
+    }, {
+        "title": "Developers Nation",
+        "dates": "March-2016",
+        "description": "The Project built by 4 people team as part of our college project. It was made to keep all student and developers alike aware of the new technologies.",
+        "images": ["images/197x148.gif"]
+    }]
 };
 
-projects.display = function(){
-    projects.projects.forEach(function(project){
+projects.display = function() {
+
+    projects.projects.forEach(function(project) {
         $("#projects").append(HTMLprojectStart);
 
         var formattedTitle = HTMLprojectTitle.replace("%data%", project.title);
@@ -250,9 +245,10 @@ projects.display = function(){
 
         var formattedDescription = HTMLprojectDescription.replace("%data%", project.description);
         $(".project-entry:last").append(formattedDescription);
+
         if (project.images.length > 0) {
 
-            project.images.forEach(function(image){
+            project.images.forEach(function(image) {
                 var formattedImage = HTMLprojectImage.replace("%data%", project.images);
                 $(".project-entry:last").append(formattedImage);
             });
@@ -264,55 +260,7 @@ projects.display();
 
 /*-------Project ends here--------*/
 
+/*-------Map------*/
 
 $("#mapDiv").append(googleMap);
 
-
-
-/*function inName(name) {
-    name = name.split(" ");
-    console.log(name);
-    name[1] = name.toUpperCase();
-    name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
-
-    return name[0] +" "+name[1];
-}
-
-$("#main").append(internationalizeButton);*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*var education = {};
-education["name"] = "Deenbandhu Chhotu Ram University of Science and Technology";
-education["years"] = "2013-2016";
-education["city"] = " Murthal Sonipat, Haryana, India";
-
-$("#main").append(work["position"]);
-$("#main").append(education.name);
-*/
