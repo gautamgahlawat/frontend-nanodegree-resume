@@ -30,7 +30,7 @@ var bio = {
     },
     "welcomeMessage": "Hi welcome to my Resume, thanks for taking time to visit !!",
     "skills": ["Awesome", "Creative", "Responsible", "Dependable"],
-    "bioPic": "images/my-profile-pic.jpg"
+    "biopic": "images/my-profile-pic.jpg"
 
 };
 
@@ -42,9 +42,8 @@ bio.display = function() {
     $("#header").prepend(formattedName);
 
 
-
-    var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
-    $("#topContacts").prepend(formattedLocation);
+    var location = bio.contacts.location;
+    var formattedLocation = HTMLlocation.replace("%data%", location);
 
     var twitter = bio.contacts.twitter;
     var formattedTwitter = HTMLtwitter.replace("%data%", twitter);
@@ -58,34 +57,27 @@ bio.display = function() {
     var github = bio.contacts.github;
     var formattedGithub = HTMLgithub.replace("%data%", github);
 
+    $("#topContacts, #footerContacts").prepend(formattedLocation);
     $("#topContacts, #footerContacts").append(formattedMobile);
     $("#topContacts, #footerContacts").append(formattedEmail);
     $("#topContacts, #footerContacts").append(formattedGithub);
-    $("#footerContacts").append(formattedTwitter);
+    $("#topContacts, #footerContacts").append(formattedTwitter);
 
 
     var formattedWelcomeMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
     $("#header").append(formattedWelcomeMessage);
 
-    var bioPic = bio.bioPic;
-    var formattedBio = HTMLbioPic.replace("%data%", bioPic);
+    var biopic = bio.biopic;
+    var formattedBio = HTMLbioPic.replace("%data%", biopic);
     $("#header").append(formattedBio);
 
     if (bio.skills.length > 0) {
-
         $("#header").append(HTMLskillsStart);
 
-        var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-        $("#skills").append(formattedSkill);
-
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-        $("#skills").append(formattedSkill);
-
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-        $("#skills").append(formattedSkill);
-
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[3]);
-        $("#skills").append(formattedSkill);
+        bio.skills.forEach(function(skill) {
+            var formattedSkill = HTMLskills.replace("%data%", skill);
+            $("#skills").append(formattedSkill);
+        });
     }
 };
 
@@ -175,7 +167,7 @@ education.display();
 
 var work = {
     jobs: [{
-        "position": "Intern",
+        "title": "Intern",
         "employer": "Fluid Operations AG",
         "location": "Walldorf, Germany",
         "dates": "June 2015 - August 2015",
@@ -189,7 +181,7 @@ work.display = function() {
         $("#workExperience").append(HTMLworkStart);
 
         var formattedEmployer = HTMLworkEmployer.replace("%data%", job.employer);
-        var formattedTitle = HTMLworkTitle.replace("%data%", job.position);
+        var formattedTitle = HTMLworkTitle.replace("%data%", job.title);
         var formattedEmployerTitle = formattedEmployer + formattedTitle;
         $(".work-entry:last").append(formattedEmployerTitle);
 
