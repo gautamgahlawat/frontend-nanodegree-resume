@@ -27,11 +27,14 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     <!-- Tells the browser what the title of this page should be. -->
     <title>Resume - Gautam Gahlawat</title>
 
+    <!--Fevicon-->
     <link rel="icon" href="images/icon-fevicon.png" type="image/png" sizes="20x20">
+
     <!-- Load the page styles. -->
     <link href="css/style.css" rel="stylesheet">
 
-
+    <!--Bootstrap CDN-->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
     <!--
   Uncomment the <script> tag below when you're ready to add an interactive Google Map to your resume!
@@ -40,7 +43,47 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
 
 </head>
 
-<body>
+<body id="page-top" class="section">>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse .navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">My Resume</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#skills">Skills</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#workExperience">Experience</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#projects">Projects</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#education">Education</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
     <div id="main">
 
         <!--
@@ -50,14 +93,16 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
     display by looking at the id or at what's written between the <h2> tags.
     -->
         <header>
-            <div id="header" class="center-content clear-fix">
+            <div id="header" class="center-content clear-fix section">
                 <ul id="topContacts" class="flex-box"></ul>
             </div>
         </header>
 
         <div style="clear: both;"></div>
 
-        <div id="skills" class="white">
+        <!-- skills section -->
+
+        <div id="skills" class="skills-white">
             <h2>Technical Skills:</h2>
             <dl class="skills-diagram">
                 <dt class="skill-5">Git</dt>
@@ -83,18 +128,32 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
             </dl>
         </div>
 
-        <div id="workExperience" class="gray">
+        <!-- Experience section -->
+
+        <div id="workExperience" class="experience-gray">
             <h2>Work Experience</h2>
         </div>
-        <div id="projects">
+
+        <!-- Projecct section  -->
+
+        <div id="projects" class="projects-white">
             <h2>Projects</h2>
         </div>
-        <div id="education" class="gray">
+
+        <!-- Education section -->
+
+        <div id="education" class="education-gray">
             <h2>Education</h2>
         </div>
-        <div id="mapDiv">
+
+        <!--Map section-->
+
+        <div id="mapDiv" class="map-white">
             <h2>Where I've Lived and Worked</h2>
         </div>
+
+        <!-- footer -->
+
         <footer>
             <div id="lets-connect" class="dark-gray">
                 <h2 class="orange center-text">Let's Connect</h2>
@@ -180,7 +239,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
             document.getElementById('mapDiv').style.display = 'none';
         }
     </script>
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 </body>
 
 </html>

@@ -2,14 +2,7 @@
   box-sizing: border-box;
 }
 
-#main {
-  max-width: 1200px;
-  margin: 0.8em auto;
-  border: 1px solid #aaa;
-  -webkit-box-shadow: 6px 6px 10px 0px #8a8a8a;
-  -moz-box-shadow: 6px 6px 10px 0px #8a8a8a;
-  box-shadow: 6px 6px 10px 0px #8a8a8a;
-}
+
 
 body,
 ul,
@@ -36,7 +29,7 @@ h6 {
   padding: 0 5%;
 }
 
-h1 {
+#name {
   font-size: 40px;
   color: #f5a623;
   line-height: 48px;
@@ -46,7 +39,7 @@ h1 {
 h2 {
   font-weight: bold;
   font-size: 24px;
-  color: #999;
+  font-color: #999;
   line-height: 29px;
   padding: 10px;
 }
@@ -54,7 +47,7 @@ h2 {
 h3 {
   font-style: italic;
   font-size: 20px;
-  color: #000;
+  color: #0000;
   line-height: 22px;
 }
 
@@ -101,6 +94,15 @@ a {
   display: block;
 }
 
+#main {
+  max-width: 1200px;
+  margin: 5.5em auto 2em auto;
+  border: 1px solid #aaa;
+  -webkit-box-shadow: 1px 1px 53px 4px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 1px 53px 4px rgba(0,0,0,0.75);
+  box-shadow: 1px 1px 53px 4px rgba(0,0,0,0.75);
+}
+
 .welcome-message {
   font-style: italic;
   font-size: 18px;
@@ -126,14 +128,34 @@ a {
   color: #fff;
 }
 
-.gray {
+.experience-gray {
   background-color: #cddee4;
-  padding-bottom: 10px;
   clear: both;
+  padding: 2em 0;
+}
+
+.projects-white {
+  clear: both;
+  padding: 2em 0;
+}
+
+.education-gray {
+  background-color: #cddee4;
+  clear: both;
+  padding: 2em 0;
+}
+
+.map-white {
+  clear: both;
+  padding: 0.6em 0;
 }
 
 .dark-gray {
   background-color: #274555;
+}
+
+footer #lets-connect ul#footerContacts.flex-box {
+  margin-bottom: 0;
 }
 
 /* TODO: Replace with image later */
@@ -188,6 +210,23 @@ img {
 #lets-connect {
   margin-top: 5%;
   text-align: center;
+}
+
+#workExperience {
+  padding: 40 0;
+}
+
+@media(min-width:767px) {
+    .navbar {
+        padding: 20px 0;
+        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+        transition: background .5s ease-in-out,padding .5s ease-in-out;
+    }
+
+    .top-nav-collapse {
+        padding: 0;
+    }
 }
 
 /*--------- Skill Diagram starts ------*/
@@ -336,6 +375,12 @@ img {
   #lets-connect {
     margin-top: 5%;
   }
+
+  #mapDiv {
+  height: 3500px;
+  width: 100%;
+  padding-bottom: 10%;
+}
 }
 
 @media only screen and (max-width:900px) {
@@ -344,7 +389,7 @@ img {
   }
 }
 
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 767px) {
   #lets-connect {
     margin-top: 10%;
   }
@@ -365,10 +410,10 @@ img {
 #mapDiv {
   height: 400px;
   width: 100%;
-  padding-bottom: 2.5%;
+  padding-bottom: 3%;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 767px) {
   #skills-h3,
   .biopic {
     display: block;

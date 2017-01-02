@@ -56,7 +56,7 @@ var HTMLonlineDates = '<div class="date-text">%data%</div><br>';
 var HTMLonlineURL = '<a href="#">%data%</a>';
 
 var internationalizeButton = '<button>Internationalize</button>';
-var googleMap = '<div id="map"></div>';
+var googleMap = '<div id="map" class="google-map"><br><br></div>';
 
 
 /*
@@ -248,4 +248,27 @@ window.addEventListener('load', initializeMap);
 window.addEventListener('resize', function(e) {
   //Make sure the map bounds get updated on page resize
   map.fitBounds(mapBounds);
+});
+
+
+/*----Nav scrolling---*/
+
+//jQuery to collapse the navbar on scroll
+$(window).scroll(function() {
+    if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+});
+
+//jQuery for page scrolling feature - requires jQuery Easing plugin
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
 });
