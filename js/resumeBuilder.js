@@ -200,13 +200,6 @@ work.display();
 
 /*-------Work ends here--------*/
 
-/*$(document).click(function(loc) {
-    var x = loc.pageX;
-    var y = loc.pageY;
-
-    logClicks(x,y);
-});*/
-
 
 /*-------Project starts from here--------*/
 
@@ -255,4 +248,3 @@ projects.display();
 /*-------Map------*/
 
 $("#mapDiv").append(googleMap);
-
